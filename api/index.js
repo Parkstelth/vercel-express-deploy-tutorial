@@ -1,7 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose")
 const app = express();
-const User = require('./User.js')
+const User = require('./User')
 
 console.log("몽고아틀라스 주소: ", process.env.MONGODB_URI)
 mongoose.connect(process.env.MONGODB_URI)
