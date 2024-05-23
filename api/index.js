@@ -1,12 +1,21 @@
 const express = require("express");
 const mongoose = require("mongoose")
+const cors = require('cors')
 const app = express();
 const User = require('./User')
+
+const corsOptions = {
+    origin: '*', // 해당 URL 주소만 요청을 허락함 
+    credentials: true // 사용자 인증이 필요한 리소스를 요청할 수 있도록 허용함
+}
 
 console.log("몽고아틀라스 주소: ", process.env.MONGODB_URI)
 mongoose.connect(process.env.MONGODB_URI)
 .then(() => console.log("데이터베이스 연결 성공 !!"))
 .catch(e => console.log(`데이터베이스 연결 실패 ${e}`))
+
+app.use(cors(corsOptions)) // cors 설정 미들웨어 
+app.use(express.json()) // 요청본문 (request body) 파싱(해석)을 위한 미들웨어
 
 app.get("/", (req, res) => res.send("Express on Vercel"));
 
