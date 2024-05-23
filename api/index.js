@@ -12,11 +12,12 @@ app.get("/", (req, res) => res.send("Express on Vercel"));
 
 app.post("/user", (req, res) => {
     // user 데이터 생성 테스트
+    console.log(req.body)
     const user = new User({
-        name: '사용자',
-        email: 'user123@gmail.com',
-        userId: 'user',
-        password: 'abcde123@' 
+        name: req.body.name,
+        email: req.body.email,
+        userId: req.body.userId,
+        password: req.body.password  
     })
     user.save()
     .then(() => {
