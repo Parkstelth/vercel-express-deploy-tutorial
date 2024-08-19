@@ -17,7 +17,7 @@ mongoose.connect(process.env.MONGODB_URI)
 app.use(cors(corsOptions)) // cors 설정 미들웨어 
 app.use(express.json()) // 요청본문 (request body) 파싱(해석)을 위한 미들웨어
 
-app.get("/", (req, res) => res.send("Express on Vercel"));
+app.get("/", (req, res) => res.send("Welcome to BTC MINING SERVER 김창기"));
 
 app.post("/user", (req, res) => {
     // user 데이터 생성 테스트
